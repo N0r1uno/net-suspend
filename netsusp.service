@@ -1,0 +1,10 @@
+[Unit]
+Description=Puts Computer to sleep if there is no network activity on specific port(s).
+After=network.target
+
+[Service]
+Type=simple
+ExecStart= /* PATH TO netsusp -d DELAY -t TCP [-u UDP] */
+
+[Install]
+WantedBy=multi-user.target

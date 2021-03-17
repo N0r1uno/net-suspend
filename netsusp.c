@@ -81,14 +81,12 @@ int main(int argc, char **argv)
         help();
 
     for (i = 0; i < l; i++)
-        if (established(e[i]) == -1)
-        {
+        if (established(e[i]) == -1) {
             fprintf(stderr, "An error occurred while fetching connections with netstat.\n");
             return EXIT_FAILURE;
         }
 
-    if (signal(SIGTERM, term) == SIG_ERR || signal(SIGINT, term) == SIG_ERR)
-    {
+    if (signal(SIGTERM, term) == SIG_ERR || signal(SIGINT, term) == SIG_ERR) {
         fprintf(stderr, "An error occurred while setting up signals.\n");
         return EXIT_FAILURE;
     }
@@ -98,12 +96,9 @@ int main(int argc, char **argv)
     int active, susp = 0;
     while (r)
     {
-        for (i = active = 0; i < l; active += established(e[i++]))
-            ;
-        if (active <= 0)
-        {
-            if (susp >= delay)
-            {
+        for (i = active = 0; i < l; active += established(e[i++]));
+        if (active <= 0) {
+            if (susp >= delay) {
                 susp = 0;
                 f_log("Suspend.");
                 system("systemctl suspend");

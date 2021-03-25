@@ -109,7 +109,7 @@ int main(int argc, char **argv) {
     f_log("Init.");
 
     printf("<--summary-->\ndelay=%imin%s\n", delay, (_log)?"\nlog enabled":"");
-    for (int i = 0; i < l; i++)
+    for (i = 0; i < l; i++)
         printf("%i.  %c:%i\n", i+1, e[i].protocol, e[i].port);
 
     int active, susp = 0;

@@ -1,4 +1,5 @@
 *.log
+netsusp
 
 # Prerequisites
 *.d

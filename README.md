@@ -12,13 +12,13 @@ Either download the [latest release](https://github.com/N0r1uno/net-suspend/rele
 ## Usage
 ./netsusp -l -d ***delay*** -***protocol*** ***port*** [...]
   * -l: write log file to `/var/log/netsusp.log` (optional)
-  * delay: time in minutes until suspend after inactivity\
-  * protocol: u(dp)/t(cp)\
+  * delay: time in minutes until suspend after inactivity
+  * protocol: t(cp)\
+    (note: u(dp) doesn't really make sense here as it's stateless)
   * port: 0-65535
 
 eg: **netsusp -d 30 -t 25565 -t 22**
-will not suspend if there are any established tcp connections on port 25565(⛏💎) and 22(ssh).
-If idling for 30 minutes straight, the system will suspend.
+will not suspend if there are any established tcp connections on port 25565 and 22. If idling for 30 minutes straight, the system will suspend.
 
 ## Run as systemd service (recommended)
 * change the highlighted content of the given [netsusp.service](https://github.com/N0r1uno/net-suspend/blob/main/netsusp.service) file to fit your needs
